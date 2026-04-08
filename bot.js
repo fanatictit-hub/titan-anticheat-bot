@@ -17,9 +17,11 @@ const path = require('path');
 // ЗАМЕНИ ЭТИ ЗНАЧЕНИЯ ПОСЛЕ СОЗДАНИЯ БОТА:
 const BOT_TOKEN = process.env.BOT_TOKEN || 'YOUR_BOT_TOKEN_HERE';
 const ADMIN_CHAT_ID = process.env.ADMIN_CHAT_ID || 'YOUR_CHAT_ID_HERE';
-
+// 🔍 ОТЛАДКА: Показываем что загрузилось
+console.log('🔍 DEBUG: BOT_TOKEN loaded:', BOT_TOKEN ? `YES (length: ${BOT_TOKEN.length}, starts with: ${BOT_TOKEN.substring(0, 10)}...)` : 'NO');
+console.log('🔍 DEBUG: ADMIN_CHAT_ID loaded:', ADMIN_CHAT_ID ? `YES (${ADMIN_CHAT_ID})` : 'NO');
 // Проверка конфигурации
-if (BOT_TOKEN === 'YOUR_BOT_TOKEN_HERE' || ADMIN_CHAT_ID === 'YOUR_CHAT_ID_HERE') {
+if (BOT_TOKEN === 'YOUR_BOT_TOKEN_HERE' || !BOT_TOKEN || ADMIN_CHAT_ID === 'YOUR_CHAT_ID_HERE' || !ADMIN_CHAT_ID) {
     console.error('❌ ОШИБКА: Нужно настроить BOT_TOKEN и ADMIN_CHAT_ID!');
     console.log('1. Создай бота через @BotFather');
     console.log('2. Получи Chat ID через @userinfobot');
